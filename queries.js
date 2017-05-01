@@ -24,6 +24,7 @@ function getAllPuppies(req, res, next) {
       return next(err);
     });
 }
+
 function getSinglePuppy(req, res, next) {
   var pupID = parseInt(req.params.id);
   db.one('select * from pups where id = $1', pupID)
@@ -71,6 +72,7 @@ function updatePuppy(req, res, next) {
     });
 }
 function removePuppy(req, res, next) {
+  console.log("removed called")
   var pupID = parseInt(req.params.id);
   db.result('delete from pups where id = $1', pupID)
     .then(function (result) {
@@ -80,16 +82,23 @@ function removePuppy(req, res, next) {
           status: 'success',
           message: `Removed ${result.rowCount} puppy`
         });
+      return res.redirect("/")
       /* jshint ignore:end */
     })
     .catch(function (err) {
       return next(err);
     });
 }
+
+function test() {
+  console.log("inside the queries.js!")
+}
+
 module.exports = {
   getAllPuppies: getAllPuppies,
   getSinglePuppy: getSinglePuppy,
   createPuppy: createPuppy,
   updatePuppy: updatePuppy,
-  removePuppy: removePuppy
+  removePuppy: removePuppy,
+  test: test
 };

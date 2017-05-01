@@ -12,6 +12,13 @@ CREATE TABLE pups (
 );
 
 INSERT INTO pups (name, breed, age, sex)
-  VALUES ('Tyler', 'Retrieved', 3, 'M');
+  VALUES ('Ruff', 'Golden Retriever', 3, 'M');
 INSERT INTO pups (name, breed, age, sex)
-    VALUES ('Scrappy', 'Jack Russel', 2, 'M');
+    VALUES ('Willow', 'Poodle', 2, 'F');
+INSERT INTO pups (name, breed, age, sex)
+    VALUES ('Bo', 'Lab', 5, 'M');
+/*
+psql -f puppies.sql
+
+postgres -D /usr/local/var/postgres
+*/

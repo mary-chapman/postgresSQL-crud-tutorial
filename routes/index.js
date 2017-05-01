@@ -4,18 +4,17 @@ var app = express();
 
 var db = require('../queries.js');
 
-// //respond with "hello world" when a GET request is made to the homepage
-// router.get('/', function (req, res) {
-//   res.send('puppy database')
-// })
-
-//app.use(express.static('public'));
-
 router.get('/api/puppies', db.getAllPuppies);
 router.get('/api/puppies/:id', db.getSinglePuppy);
 router.post('/api/puppies', db.createPuppy);
 router.put('/api/puppies/:id', db.updatePuppy);
-router.delete('/api/puppies/:id', db.removePuppy);
+router.delete('/api/puppies/:id', function(req, res) {
+  console.log("reached endpoint")
+  var query = {"_id": req.params.id}
+  db.removePuppy(req, res, test);
+});
 
-
+function test() {
+  console.log("I am the next!")
+}
 module.exports = router;
