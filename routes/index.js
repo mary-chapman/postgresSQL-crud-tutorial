@@ -6,7 +6,15 @@ var db = require('../queries.js');
 
 router.get('/api/puppies', db.getAllPuppies);
 router.get('/api/puppies/:id', db.getSinglePuppy);
-router.post('/api/puppies', db.createPuppy);
+//router.post('/api/puppies', db.createPuppy);
+router.post('/api/puppies', function(req, res) {
+  db.createPuppy(req, res, test2);
+});
+
+function test2() {
+  console.log("test2")
+}
+
 router.put('/api/puppies/:id', db.updatePuppy);
 router.delete('/api/puppies/:id', function(req, res) {
   console.log("reached endpoint")

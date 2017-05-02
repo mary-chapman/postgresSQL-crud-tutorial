@@ -10,21 +10,20 @@ $(".new").click(function() {
 })
 
 //to add new data
+// $(".addForm").submit(function(event) {
+//   var data = {}
+//   // data.name = $("input[name=name]").val();
+//   // data.breed = $("input[name=breed]").val();
+//   // data.age = $("input[name=age]").val();
+//   // data.sex = $("input[name=sex]").val();
+//   event.preventDefault();
+//   console.log(data)
+//   $.post( "api/puppies", function( data ) {
+//     console.log(data);
+//   });
+//
+// });
 
-
-$(".save").click(function() {
-  var data = {}
-  data.name = $(".nameInput").val();
-  data.breed = $(".breedInput").val();
-  data.age = $(".ageInput").val();
-  console.log(data)
-  $.ajax({
-    type: "POST",
-    url: 'http://localhost:3000/api/puppies',
-    data: data,
-    dataType: "JSON"
-  });
-})
 
 
 /********FUNCTIONS-move to another file*****/

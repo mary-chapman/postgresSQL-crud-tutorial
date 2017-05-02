@@ -41,6 +41,7 @@ function getSinglePuppy(req, res, next) {
     });
 }
 function createPuppy(req, res, next) {
+  console.log(req.body.age)
   req.body.age = parseInt(req.body.age);
   db.none('insert into pups(name, breed, age, sex)' +
       'values(${name}, ${breed}, ${age}, ${sex})',
